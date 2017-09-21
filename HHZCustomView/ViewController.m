@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import "HHZInputView.h"
+#import "HHZTextView.h"
 
-@interface ViewController ()
-
+@interface ViewController ()<HHZTextViewDelegate>
+@property (nonatomic, strong) HHZTextView * textView;
 @end
 
 @implementation ViewController
@@ -21,7 +22,19 @@
     HHZInputView * vie = [[HHZInputView alloc] init];
     vie.frame = CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 40);
     [vie createInputViewWithTitle:@"手机号码" placeHold:@"请输入手机号码"];
-    [self.view addSubview:vie];
+//    [self.view addSubview:vie];
+    
+    self.textView = [[HHZTextView alloc] initWithFrame:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 200) placeHolder:@"陈哲是个好孩子" isShowWordLabel:YES delegate:self];
+    [self.view addSubview:self.textView];
+    
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];
+}
+
+-(void)textViewTextDidChanged
+{
+    [self.textView modifyWordLabelText:[NSString stringWithFormat:@"%lu/200",(unsigned long)self.textView.textView.text.length]];
+//    [self.textView modifyWordLabelText:[NSString stringWithFormat:@"sdabhudusavduyaydvas使用啊都是一样的撒的杜萨UI的的大衣 撒sdsadd/200"]];
 }
 
 

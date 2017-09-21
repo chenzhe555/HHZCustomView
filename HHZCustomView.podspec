@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HHZCustomView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.1.1"
   s.summary      = "HHZCustomView"
 
   # This description is used to generate tags and improve search results.
@@ -95,6 +95,10 @@ Pod::Spec.new do |s|
   s.subspec 'HHZCustomView' do |one|
       one.subspec 'inputView' do |three|
         three.source_files = 'HHZCustomView/classes/inputView/*.{h,m}'
+      end
+
+      one.subspec 'textView' do |three|
+        three.source_files = 'HHZCustomView/classes/textView/*.{h,m}'
       end
   end
 
