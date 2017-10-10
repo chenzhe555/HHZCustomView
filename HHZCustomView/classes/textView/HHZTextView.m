@@ -9,11 +9,8 @@
 #import "HHZTextView.h"
 
 @interface HHZTextView ()
-@property (nonatomic, assign) id<HHZTextViewDelegate> delegate;
 @property (nonatomic, strong) UILabel * placeHolderLabel;
 @property (nonatomic, strong) UILabel * wordLabel;
-@property (nonatomic, copy) NSString * placeHolder;
-@property (nonatomic, assign) BOOL isShowWordLabel;
 @end
 
 @implementation HHZTextView
@@ -30,6 +27,16 @@
         self.isShowWordLabel = isShowWordLabel;
     }
     return self;
+}
+
+-(void)configPlaceHolder:(NSString *)placeHolder isShowWordLabel:(BOOL)isShowWordLabel delegate:(id<HHZTextViewDelegate>)delegate
+{
+    self.backgroundColor = [UIColor whiteColor];
+    self.delegate = delegate;
+    [self registNotification];
+    [self createTextView];
+    if (placeHolder.length > 0) self.placeHolder = placeHolder;
+    self.isShowWordLabel = isShowWordLabel;
 }
 
 #pragma mark 创建视图和注册通知
