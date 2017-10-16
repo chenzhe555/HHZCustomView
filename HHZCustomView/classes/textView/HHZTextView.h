@@ -38,6 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)configPlaceHolder:(NSString * _Nullable)placeHolder isShowWordLabel:(BOOL)isShowWordLabel delegate:(id<HHZTextViewDelegate>)delegate;
 
 /**
+ *  修改TextView的文本信息
+ */
+-(void)modifyTextViewText:(NSString *)text;
+
+/**
  *  自行实现文字个数限制的文本信息 (例如: 23/200)
  */
 -(void)modifyWordLabelText:(NSString *)labelText;

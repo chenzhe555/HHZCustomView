@@ -92,6 +92,13 @@
     if (_isShowWordLabel) self.wordLabel.text = labelText;
 }
 
+-(void)modifyTextViewText:(NSString *)text
+{
+    self.textView.text = text;
+    if (text.length > 0) self.placeHolderLabel.hidden = YES;
+    else self.placeHolderLabel.hidden = NO;
+}
+
 -(void)textViewTextDidChanged
 {
     self.placeHolderLabel.hidden = (self.textView.text.length > 0);
